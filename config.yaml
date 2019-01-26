@@ -1,0 +1,16 @@
+---
+name: fraq
+hp: 20
+ac: 13
+speed: 5
+str: 8
+dex: 14
+con: 9
+int: 12
+wis: 12
+cha: 17
+items: 
+  - rope
+  - matches
+  - skin of water
+alignment: NE
