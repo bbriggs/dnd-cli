@@ -34,12 +34,12 @@ alignment: LG
 ```
 
 ### Planned work
-[ ] Save character to a database (SQLite)
-[ ] Update HP and other stats interactively
-[ ] Initialize/roll new characters (from scratch and templates)
-[ ] Experience tracking
-[ ] Item tracking that's actually useful
-[ ] Money/finance tracking
-[ ] Magic tracking (did you use that spell today?)
-[ ] Rest status
-[ ] Integration with D&D 5e API for searching items, spells, and more
+- [ ] Save character to a database (SQLite)
+- [ ] Update HP and other stats interactively
+- [ ] Initialize/roll new characters (from scratch and templates)
+- [ ] Experience tracking
+- [ ] Item tracking that's actually useful
+- [ ] Money/finance tracking
+- [ ] Magic tracking (did you use that spell today?)
+- [ ] Rest status
+- [ ] Integration with D&D 5e API for searching items, spells, and more
