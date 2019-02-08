@@ -49,25 +49,44 @@ func (c *Character) executor(in string) {
 	case "help":
 		fmt.Println(HELP)
 		return
+	case "get":
+		if len(blocks) > 1 {
+			if blocks[1] == "items" {
+				fmt.Println(c.Items)
+			}
+			attr, err := c.getAttr(blocks[1])
+			if err != nil {
+				fmt.Println(err.Error())
+			} else {
+				fmt.Println(attr)
+			}
+		}
 	case "exit":
 		os.Exit(0)
-	case "hp":
-		fmt.Println(c.HP)
-		return
-	case "name":
-		fmt.Println(c.Name)
-		return
-	case "items":
-		for _, element := range c.Items {
-			fmt.Println("-", element)
-		}
-		return
-	case "alignment":
-		fmt.Println(c.Alignment)
-		return
 	default:
 		return
 	}
+}
+
+func (c *Character) getAttr(attr string) (int, error) {
+	attrs := map[string]int{
+		"hp":    c.HP,
+		"ac":    c.AC,
+		"speed": c.Speed,
+		"str":   c.Str,
+		"dex":   c.Dex,
+		"con":   c.Con,
+		"int":   c.Int,
+		"wis":   c.Wis,
+		"cha":   c.Cha,
+	}
+
+	for k, v := range attrs {
+		if k == attr {
+			return v, nil
+		}
+	}
+	return 0, fmt.Errorf("Attribute not found.")
 }
 
 func readState(config string) (*Character, error) {
