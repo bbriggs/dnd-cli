@@ -20,6 +20,7 @@ type Character struct {
 	Alignment string   `yaml:"alignment"`
 	Age       int      `yaml:"age"`
 	Height    int      `yaml:"height"`
+	Size      string   `yaml:"size"`
 	Eyes      string   `yaml:"eyes"`
 	Skin      string   `yaml:"skin"`
 	Weight    string   `yaml:"weight"`
