@@ -11,21 +11,69 @@ import (
 )
 
 type Character struct {
+	// Basic stuff
 	Name      string   `yaml:"name"`
 	Level     int      `yaml:"level"`
+	XP        int      `yaml:"experience"`
 	Race      string   `yaml:"race"`
 	Class     string   `yaml:"class"`
 	Alignment string   `yaml:"alignment"`
-	HP        int      `yaml:"hp"`
-	AC        int      `yaml:"ac"`
-	Speed     int      `yaml:"speed"`
-	Str       int      `yaml:"str"`
-	Dex       int      `yaml:"dex"`
-	Con       int      `yaml:"con"`
-	Int       int      `yaml:"int"`
-	Wis       int      `yaml:"wis"`
-	Cha       int      `yaml:"cha"`
+	Age       int      `yaml:"age"`
+	Height    int      `yaml:"height"`
+	Eyes      string   `yaml:"eyes"`
+	Skin      string   `yaml:"skin"`
+	Weight    string   `yaml:"weight"`
+	Hair      string   `yaml:"hair"`
+	Traits    []string `yaml:"traits"`
+	Ideals    []string `yaml:"ideals"`
+	Bonds     []string `yaml:"bonds"`
+	Flaws     []string `yaml:"flaws"`
+	Features  []string `yaml:"features"`
+
+	// Gear
 	Items     []string `yaml:"items"`
+	Equipment []string `yaml:"equipment"`
+	CP        int      `yaml:"cp"`
+	SP        int      `yaml:"sp"`
+	EP        int      `yaml:"ep"`
+	GP        int      `yaml:"gp"`
+	PP        int      `yaml:"pp"`
+
+	// Attributes
+	Speed int `yaml:"speed"`
+	Str   int `yaml:"str"`
+	Dex   int `yaml:"dex"`
+	Con   int `yaml:"con"`
+	Int   int `yaml:"int"`
+	Wis   int `yaml:"wis"`
+	Cha   int `yaml:"cha"`
+
+	// Skills
+	Acrobatics     int `yaml:"acrobatics"`
+	AnimalHandling int `yaml:"animal_handling"`
+	Arcana         int `yaml:"arcana"`
+	Athletics      int `yaml:"athletics"`
+	Deception      int `yaml:"deception"`
+	History        int `yaml:"history"`
+	Insight        int `yaml:"insight"`
+	Intimidation   int `yaml:"intimidation"`
+	Investigation  int `yaml:"investigation"`
+	Medicine       int `yaml:"medicine"`
+	Nature         int `yaml:"nature"`
+	Perception     int `yaml:"perception"`
+	Persuasion     int `yaml:"persuasion"`
+	Religion       int `yaml:"religion"`
+	SlightOfHand   int `yaml:sleigh_of_hand"`
+	Stealth        int `yaml:"stealth"`
+	Survival       int `yaml:"survival"`
+
+	// Other
+	PassiveWisdom int `yaml:"passive_wisdom"`
+
+	// Combat
+	AC     int `yaml:"ac"`
+	HP     int `yaml:"hp"`
+	TempHP int `yaml:"temp_hp"`
 }
 
 const HELP = "Generic help text"
