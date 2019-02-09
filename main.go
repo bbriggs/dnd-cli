@@ -75,15 +75,21 @@ func (c *Character) executor(in string) {
 
 func (c *Character) getAttr(attr string) (int, error) {
 	attrs := map[string]int{
-		"hp":    c.HP,
-		"ac":    c.AC,
-		"speed": c.Speed,
-		"str":   c.Str,
-		"dex":   c.Dex,
-		"con":   c.Con,
-		"int":   c.Int,
-		"wis":   c.Wis,
-		"cha":   c.Cha,
+		"hp":           c.HP,
+		"ac":           c.AC,
+		"speed":        c.Speed,
+		"str":          c.Str,
+		"strength":     c.Str,
+		"dex":          c.Dex,
+		"dexterity":    c.Dex,
+		"con":          c.Con,
+		"constitution": c.Con,
+		"int":          c.Int,
+		"intelligence": c.Int,
+		"wis":          c.Wis,
+		"wisdom":       c.Wis,
+		"cha":          c.Cha,
+		"charisma":     c.Cha,
 	}
 
 	for k, v := range attrs {
