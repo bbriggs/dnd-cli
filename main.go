@@ -107,6 +107,9 @@ func (c *Character) executor(in string) {
 			case "traits", "ideals", "bonds", "flaws", "features", "items", "equipment":
 				c.printStringSliceAttr(blocks[1])
 				return
+			case "name", "race", "class", "alignment", "size", "eyes", "skin", "weight", "hair":
+				c.printStringAttr(blocks[1])
+				return
 			default:
 				attr, err := c.getAttr(blocks[1])
 				if err != nil {
@@ -140,6 +143,25 @@ func (c *Character) printStringSliceAttr(attr string) {
 			for _, i := range v {
 				fmt.Println("- " + i)
 			}
+		}
+	}
+}
+
+func (c *Character) printStringAttr(attr string) {
+	attrs := map[string]string{
+		"name":      c.Name,
+		"race":      c.Race,
+		"class":     c.Class,
+		"alignment": c.Alignment,
+		"size":      c.Size,
+		"eyes":      c.Eyes,
+		"skin":      c.Skin,
+		"weight":    c.Weight,
+		"hair":      c.Hair,
+	}
+	for k, v := range attrs {
+		if attr == k {
+			fmt.Println(v)
 		}
 	}
 }
