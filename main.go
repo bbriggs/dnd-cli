@@ -53,8 +53,12 @@ func (c *Character) executor(in string) {
 		if len(blocks) > 1 {
 			switch blocks[1] {
 			case "items":
-				fmt.Println(c.Items)
+				c.printItems()
 				return
+			case "alignment":
+				fmt.Println(c.Alignment)
+			case "name":
+				fmt.Println(c.Name)
 			default:
 				attr, err := c.getAttr(blocks[1])
 				if err != nil {
@@ -70,6 +74,12 @@ func (c *Character) executor(in string) {
 		os.Exit(0)
 	default:
 		return
+	}
+}
+
+func (c *Character) printItems() {
+	for _, i := range c.Items {
+		fmt.Println("- " + i)
 	}
 }
 
