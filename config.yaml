@@ -1,5 +1,8 @@
 ---
 name: fraq
+class: Mohawk
+race: Night Elf
+level: 1
 hp: 20
 ac: 13
 speed: 5

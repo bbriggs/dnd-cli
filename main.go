@@ -12,6 +12,10 @@ import (
 
 type Character struct {
 	Name      string   `yaml:"name"`
+	Level     int      `yaml:"level"`
+	Race      string   `yaml:"race"`
+	Class     string   `yaml:"class"`
+	Alignment string   `yaml:"alignment"`
 	HP        int      `yaml:"hp"`
 	AC        int      `yaml:"ac"`
 	Speed     int      `yaml:"speed"`
@@ -22,7 +26,6 @@ type Character struct {
 	Wis       int      `yaml:"wis"`
 	Cha       int      `yaml:"cha"`
 	Items     []string `yaml:"items"`
-	Alignment string   `yaml:"alignment"`
 }
 
 const HELP = "Generic help text"
@@ -57,8 +60,19 @@ func (c *Character) executor(in string) {
 				return
 			case "alignment":
 				fmt.Println(c.Alignment)
+				return
 			case "name":
 				fmt.Println(c.Name)
+				return
+			case "level":
+				fmt.Println(c.Level)
+				return
+			case "race":
+				fmt.Println(c.Race)
+				return
+			case "class":
+				fmt.Println(c.Class)
+				return
 			default:
 				attr, err := c.getAttr(blocks[1])
 				if err != nil {
