@@ -166,12 +166,6 @@ func (c *Character) printStringAttr(attr string) {
 	}
 }
 
-func (c *Character) printItems() {
-	for _, i := range c.Items {
-		fmt.Println("- " + i)
-	}
-}
-
 func (c *Character) getAttr(attr string) (int, error) {
 	attrs := map[string]int{
 		"hp":           c.HP,
