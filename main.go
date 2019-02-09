@@ -55,6 +55,10 @@ func (c *Character) executor(in string) {
 			case "items":
 				fmt.Println(c.Items)
 				return
+			case "alignment":
+				fmt.Println(c.Alignment)
+			case "name":
+				fmt.Println(c.Name)
 			default:
 				attr, err := c.getAttr(blocks[1])
 				if err != nil {
