@@ -51,15 +51,20 @@ func (c *Character) executor(in string) {
 		return
 	case "get":
 		if len(blocks) > 1 {
-			if blocks[1] == "items" {
+			switch blocks[1] {
+			case "items":
 				fmt.Println(c.Items)
+				return
+			default:
+				attr, err := c.getAttr(blocks[1])
+				if err != nil {
+					fmt.Println(err.Error())
+				} else {
+					fmt.Println(attr)
+				}
 			}
-			attr, err := c.getAttr(blocks[1])
-			if err != nil {
-				fmt.Println(err.Error())
-			} else {
-				fmt.Println(attr)
-			}
+		} else {
+			return
 		}
 	case "exit":
 		os.Exit(0)
