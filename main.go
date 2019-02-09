@@ -104,23 +104,8 @@ func (c *Character) executor(in string) {
 	case "get":
 		if len(blocks) > 1 {
 			switch blocks[1] {
-			case "items":
-				c.printItems()
-				return
-			case "alignment":
-				fmt.Println(c.Alignment)
-				return
-			case "name":
-				fmt.Println(c.Name)
-				return
-			case "level":
-				fmt.Println(c.Level)
-				return
-			case "race":
-				fmt.Println(c.Race)
-				return
-			case "class":
-				fmt.Println(c.Class)
+			case "traits", "ideals", "bonds", "flaws", "features", "items", "equipment":
+				c.printStringSliceAttr(blocks[1])
 				return
 			default:
 				attr, err := c.getAttr(blocks[1])
@@ -137,6 +122,25 @@ func (c *Character) executor(in string) {
 		os.Exit(0)
 	default:
 		return
+	}
+}
+
+func (c *Character) printStringSliceAttr(attr string) {
+	attrs := map[string][]string{
+		"traits":    c.Traits,
+		"ideals":    c.Ideals,
+		"bonds":     c.Bonds,
+		"flaws":     c.Flaws,
+		"features":  c.Features,
+		"items":     c.Items,
+		"equipment": c.Equipment,
+	}
+	for k, v := range attrs {
+		if k == attr {
+			for _, i := range v {
+				fmt.Println("- " + i)
+			}
+		}
 	}
 }
 
