@@ -111,6 +111,16 @@ func (c *Character) executor(in string) {
 		} else {
 			return
 		}
+	case "set":
+		if len(blocks) > 1 {
+			if len(blocks) == 2 {
+				fmt.Println("Not enough arguments. Usage: set <attr> <value>")
+				return
+			} else if len(blocks) > 2 {
+				c.setStringAttr(blocks[1], blocks[2])
+				return
+			}
+		}
 	case "exit":
 		os.Exit(0)
 	default:
@@ -162,6 +172,31 @@ func (c *Character) printStringAttr(attr string) {
 		if attr == k {
 			fmt.Println(v)
 		}
+	}
+}
+
+func (c *Character) setStringAttr(attr string, val string) {
+	switch attr {
+	case "name":
+		c.Name = val
+	case "race":
+		c.Race = val
+	case "class":
+		c.Class = val
+	case "alignment":
+		c.Alignment = val
+	case "size":
+		c.Size = val
+	case "eyes":
+		c.Eyes = val
+	case "skin":
+		c.Skin = val
+	case "weight":
+		c.Weight = val
+	case "hair":
+		c.Hair = val
+	default:
+		fmt.Println("Error: Attribute not found.")
 	}
 }
 

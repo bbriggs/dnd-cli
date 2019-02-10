@@ -154,8 +154,13 @@ func argumentsCompleter(args []string) []prompt.Suggest {
 			second := args[1]
 			return prompt.FilterHasPrefix(secondSuggestions, second, true)
 		}
+	case "set":
+		if len(args) == 2 {
+			second := args[1]
+			return prompt.FilterHasPrefix(secondSuggestions, second, true)
+		}
 	default:
-		return []prompt.Suggest{}
+		return rootCmds
 	}
 
 	return rootCmds
