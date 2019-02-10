@@ -8,7 +8,7 @@ A CLI for interacting with your character
 
 or if you have `dep` installed:
 
-`git clone https://github.com/bbriggs/dnd-cli.git && cd dnd-cli && dep ensure && go run ./main.go`
+`git clone https://github.com/bbriggs/dnd-cli.git && cd dnd-cli && dep ensure && go run ./*.go`
 
 ## Configuration
 
