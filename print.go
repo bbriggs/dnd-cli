@@ -2,7 +2,27 @@ package main
 
 import (
 	"fmt"
+	"gopkg.in/yaml.v2"
+	"io/ioutil"
 )
+
+func dumpState(c Character) error {
+	d, err := yaml.Marshal(&c)
+	if err != nil {
+		fmt.Println("Unable to save state!")
+		fmt.Println(err.Error())
+		return err
+	}
+
+	err = ioutil.WriteFile(fmt.Sprintf("%s.yaml", c.Name), d, 0666)
+	if err != nil {
+		fmt.Println("Unable to save state!")
+		fmt.Println(err.Error())
+		return err
+	}
+
+	return nil
+}
 
 func (c *Character) printIntAttr(attr string) {
 	attrs := map[string]int{
@@ -55,6 +75,44 @@ func (c *Character) printIntAttr(attr string) {
 	for k, v := range attrs {
 		if k == attr {
 			fmt.Println(v)
+		}
+	}
+}
+
+func (c *Character) printStringAttr(attr string) {
+	attrs := map[string]string{
+		"name":      c.Name,
+		"race":      c.Race,
+		"class":     c.Class,
+		"alignment": c.Alignment,
+		"size":      c.Size,
+		"eyes":      c.Eyes,
+		"skin":      c.Skin,
+		"weight":    c.Weight,
+		"hair":      c.Hair,
+	}
+	for k, v := range attrs {
+		if attr == k {
+			fmt.Println(v)
+		}
+	}
+}
+
+func (c *Character) printStringSliceAttr(attr string) {
+	attrs := map[string][]string{
+		"traits":    c.Traits,
+		"ideals":    c.Ideals,
+		"bonds":     c.Bonds,
+		"flaws":     c.Flaws,
+		"features":  c.Features,
+		"items":     c.Items,
+		"equipment": c.Equipment,
+	}
+	for k, v := range attrs {
+		if k == attr {
+			for _, i := range v {
+				fmt.Println("- " + i)
+			}
 		}
 	}
 }

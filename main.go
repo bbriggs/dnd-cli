@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
+	"strconv"
 	"strings"
 
 	"github.com/c-bata/go-prompt"
@@ -117,7 +118,15 @@ func (c *Character) executor(in string) {
 				fmt.Println("Not enough arguments. Usage: set <attr> <value>")
 				return
 			} else if len(blocks) > 2 {
-				c.setStringAttr(blocks[1], blocks[2])
+				if itemInSlice(blocks[1], stringAttrs) {
+					c.setStringAttr(blocks[1], blocks[2])
+				} else if itemInSlice(blocks[1], intAttrs) {
+					i, err := strconv.Atoi(blocks[2])
+					if err != nil {
+						fmt.Println("Value must be an engineer")
+					}
+					c.setIntAttr(blocks[1], i)
+				}
 				return
 			}
 		}
